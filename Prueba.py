@@ -1,5 +1,6 @@
 from pymongo import MongoClient
-import pprint
+import pandas as pd
+
 
 '''
 Creamos un cliente de mongo, para ello debemos tener una instancia
@@ -35,7 +36,13 @@ print("Introduce que tipo de petalo quieres sacar:")
 print("Solo hay Setosa, Versicolor y Virginica")
 nombrePetalo = input()
 
-resultados = iris.find({},{"\"variety\"":nombrePetalo})
 
-for x in resultados:
-    print(x)
+
+#resultados = iris.find({},{"\"variety\"":nombrePetalo})
+
+#for x in resultados:
+#    print(x)
+
+iris = pd.DataFrame(list(iris.find()))
+
+print(iris)
