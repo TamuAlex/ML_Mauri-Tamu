@@ -31,5 +31,11 @@ En nuestro caso, la coleccion se llama iris
 iris = db['iris']
 
 
-#Prueba para ver que hemos importado bien la base de datos
-pprint.pprint(iris.find_one())
+print("Introduce que tipo de petalo quieres sacar:")
+print("Solo hay Setosa, Versicolor y Virginica")
+nombrePetalo = input()
+
+resultados = iris.find({},{"\"variety\"":nombrePetalo})
+
+for x in resultados:
+    print(x)
